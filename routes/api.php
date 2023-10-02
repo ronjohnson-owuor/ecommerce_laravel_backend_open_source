@@ -9,12 +9,11 @@ use App\Http\Controllers\UserController;
 Route::post("/signup", [UserController::class, 'signup']);
 Route::post("/login", [UserController::class, 'login']);
 Route::post("/allproduct", [productController::class, 'getproduct']);
-	Route::post("/addproduct", [productController::class, 'addproduct']);
-	Route::post("/deleteproduct", [productController::class, 'deleteproduct']);
-
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
+	Route::post("/addproduct", [productController::class, 'addproduct']);
+	Route::post("/deleteproduct", [productController::class, 'deleteproduct']);
     Route::post("/customorder", [orderController::class, 'customorder']);
 	Route::post("/processorder", [orderController::class, 'makeorder']);
 	Route::post("/getorder", [orderController::class, 'getorder']);
