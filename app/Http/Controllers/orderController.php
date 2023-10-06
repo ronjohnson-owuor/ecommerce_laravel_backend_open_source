@@ -20,7 +20,9 @@ class orderController extends Controller
             'order' => $request->order,
             'location' => $user->location
         ]);
-        return response() -> json($user);
+        return response() -> json([
+            'message' => "custom order placed successfully"
+        ]);
     }
     
     public function makeorder (Request $request){
