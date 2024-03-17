@@ -61,4 +61,21 @@ class productController extends Controller
             "message" => $request->id." deleted successfully"
         ]);
     }
+    
+    
+    public function editProduct(Request $request){
+        $id = $request -> id;
+        $product_name = $request -> name;
+        $product_price = $request ->price;
+        $product_keyword = $request -> keyword;
+        
+        $product = Product::find($id);
+        $product -> name = $product_name;
+        $product -> price = $product_price;
+        $product -> keyword = $product_keyword;
+        $product -> save();
+        return response() -> json([
+            "message" => "product updated"
+        ]);
+    }
 }

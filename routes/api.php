@@ -20,6 +20,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 	Route::post("/delivered-order", [orderController::class, 'delivered']);
 	Route::post("/report", [UserController::class, 'report']);
 	Route::post("/addmessage", [UserController::class, 'addmessage']);
+	Route::post("/editproduct", [productController::class, 'editProduct']);
+	
 });
 
 
